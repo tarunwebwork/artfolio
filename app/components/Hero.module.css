@@ -1,0 +1,78 @@
+.hero {
+  position: relative;
+  width: 100%;
+  max-width: calc(100% - 32px); /* 16px left and right */
+  margin: 16px auto 32px; /* reduced top margin since Welcome section is now above */
+  height: calc(100vh - 108px); /* Account for top and bottom gaps */
+  border-radius: 20px; /* Tighter border radius like the image */
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: transparent;
+}
+
+.videoBg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  z-index: 2;
+}
+
+.content {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  max-width: 1200px;
+  padding: 0 32px;
+  width: 100%;
+}
+
+.textSlider {
+  position: relative;
+  height: 200px; /* Adjust height based on text size to prevent layout shifts */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.heading {
+  position: absolute;
+  width: 100%;
+  font-size: clamp(2.5rem, 6vw, 5.5rem);
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin: 0;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
+  pointer-events: none;
+}
+
+.heading.active {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+@media (max-width: 768px) {
+  .textSlider {
+    height: 150px;
+  }
+}

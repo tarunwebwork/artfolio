@@ -1,0 +1,275 @@
+/* ===========================
+   Footer – Artfolio Portfolio Website
+   =========================== */
+
+.footer {
+  background: #f0ede6;
+  /* matches header cream */
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  font-family: var(--font-outfit), 'Outfit', sans-serif;
+}
+
+/* ── Inner container ─────────────────────────────── */
+.inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 52px 32px 28px;
+}
+
+/* ── Top row (nav + right panel) ─────────────────── */
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 48px;
+  flex-wrap: wrap;
+}
+
+/* ── Nav columns ─────────────────────────────────── */
+.navGrid {
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  gap: 0 40px;
+  align-items: start;
+}
+
+.navCol {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.colHeading {
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: #111;
+  margin-bottom: 8px;
+  text-transform: none;
+}
+
+.navLink {
+  font-size: 13px;
+  font-weight: 400;
+  color: #444;
+  text-decoration: none;
+  letter-spacing: 0.01em;
+  transition: color 0.2s;
+  line-height: 1.65;
+}
+
+.navLink:hover {
+  color: #111;
+}
+
+.navLinkAccent {
+  color: #c0392b;
+}
+
+.navLinkAccent:hover {
+  color: #a93226;
+}
+
+/* ── Right panel ─────────────────────────────────── */
+.right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 28px;
+  min-width: 300px;
+}
+
+/* Social icons */
+.socialRow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.socialLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #111;
+  text-decoration: none;
+  transition: color 0.2s, transform 0.2s;
+}
+
+.socialLink:hover {
+  color: #c0392b;
+  transform: translateY(-2px);
+}
+
+/* Newsletter */
+.newsletter {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  width: 100%;
+}
+
+.newsletterLabel {
+  font-size: 13px;
+  font-weight: 500;
+  color: #333;
+  margin: 0;
+}
+
+.newsletterForm {
+  display: flex;
+  gap: 8px;
+  width: 100%;
+}
+
+.emailInput {
+  flex: 1;
+  height: 44px;
+  padding: 0 16px;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  background: #ebe8e1;
+  font-family: var(--font-outfit), 'Outfit', sans-serif;
+  font-size: 13.5px;
+  color: #111;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.emailInput::placeholder {
+  color: #999;
+}
+
+.emailInput:focus {
+  border-color: rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.05);
+}
+
+.subscribeBtn {
+  height: 44px;
+  padding: 0 22px;
+  border-radius: 10px;
+  border: none;
+  background: #111;
+  color: #fff;
+  font-family: var(--font-outfit), 'Outfit', sans-serif;
+  font-size: 13.5px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.2s, transform 0.15s;
+}
+
+.subscribeBtn:hover {
+  background: #000;
+  transform: translateY(-1px);
+}
+
+.subscribeBtn:active {
+  transform: translateY(0);
+}
+
+.successMsg {
+  font-size: 13px;
+  color: #2d7a4a;
+  font-weight: 500;
+  margin: 0;
+  padding: 10px 0;
+}
+
+/* ── Horizontal rule ─────────────────────────────── */
+.hr {
+  height: 1px;
+  background: rgba(0, 0, 0, 0.08);
+  margin: 36px 0 24px;
+}
+
+/* ── Bottom bar ──────────────────────────────────── */
+.bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.copyright {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12.5px;
+  color: #666;
+}
+
+.dot {
+  opacity: 0.4;
+}
+
+.poweredLink {
+  color: #666;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.poweredLink:hover {
+  color: #111;
+}
+
+/* Legal nav */
+.legalNav {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.legalLink {
+  font-size: 12.5px;
+  color: #c0392b;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.legalLink:hover {
+  color: #a93226;
+}
+
+/* ── Responsive ──────────────────────────────────── */
+@media (max-width: 900px) {
+  .navGrid {
+    grid-template-columns: repeat(2, auto);
+    gap: 24px 40px;
+  }
+}
+
+@media (max-width: 640px) {
+  .inner {
+    padding: 40px 20px 24px;
+  }
+
+  .top {
+    flex-direction: column;
+    gap: 36px;
+  }
+
+  .right {
+    align-items: flex-start;
+    min-width: unset;
+    width: 100%;
+  }
+
+  .socialRow {
+    order: -1;
+    /* put icons above newsletter on mobile */
+  }
+
+  .bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .legalNav {
+    flex-wrap: wrap;
+    gap: 12px 16px;
+  }
+}

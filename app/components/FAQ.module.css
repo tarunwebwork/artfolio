@@ -1,0 +1,209 @@
+/* ===========================
+   FAQ – Artfolio Portfolio Website
+   =========================== */
+
+.section {
+  background: #f0ede6;
+  font-family: var(--font-outfit), 'Outfit', sans-serif;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+/* ── Inner two-column layout ─────────────────────── */
+.inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 96px 32px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 72px;
+  align-items: start;
+}
+
+/* ══════════════════════════════
+   LEFT COLUMN
+   ══════════════════════════════ */
+.left {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* Eyebrow */
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #c0392b;
+  margin: 0 0 18px;
+}
+
+.eyebrowDot {
+  font-size: 9px;
+}
+
+/* Heading */
+.heading {
+  font-size: clamp(48px, 6vw, 82px);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1.0;
+  color: #111;
+  margin: 0 0 16px;
+}
+
+/* Subtitle */
+.sub {
+  font-size: 15px;
+  font-weight: 400;
+  color: #555;
+  margin: 0 0 48px;
+  line-height: 1.5;
+}
+
+/* ── Accordion ───────────────────────────────────── */
+.accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Item */
+.item {
+  background: #ffffff;
+  border-radius: 16px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.itemOpen {
+  /* no background change needed since the card is already white */
+}
+
+/* Trigger row */
+.trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 24px 28px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  border-radius: 16px;
+  transition: background 0.15s;
+}
+
+.trigger:hover {
+  background: rgba(0, 0, 0, 0.02);
+}
+
+.triggerLeft {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+/* Numbered badge */
+.number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #c0392b;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.question {
+  font-size: 14.5px;
+  font-weight: 600;
+  color: #111;
+  line-height: 1.4;
+}
+
+/* Plus icon */
+.icon {
+  font-size: 22px;
+  font-weight: 300;
+  color: #555;
+  line-height: 1;
+  transition: transform 0.3s ease, color 0.2s;
+  flex-shrink: 0;
+}
+
+.iconOpen {
+  transform: rotate(45deg);
+  color: #c0392b;
+}
+
+/* Answer panel */
+.panel {
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.answer {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.75;
+  margin: 0;
+  padding: 0 28px 24px 66px;
+  /* aligned with question text (28px left padding + 24px circle + 14px gap) */
+}
+
+/* ══════════════════════════════
+   RIGHT COLUMN — IMAGE
+   ══════════════════════════════ */
+.imageWrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 20px;
+  overflow: hidden;
+  background: #ddd9d2;
+  /* fallback */
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.1);
+}
+
+.image {
+  object-fit: cover;
+  object-position: center top;
+  transition: transform 0.6s ease;
+}
+
+.imageWrap:hover .image {
+  transform: scale(1.03);
+}
+
+/* ── Responsive ──────────────────────────────────── */
+@media (max-width: 960px) {
+  .inner {
+    grid-template-columns: 1fr;
+    gap: 52px;
+    padding: 72px 32px;
+  }
+
+  .imageWrap {
+    aspect-ratio: 4 / 3;
+    max-height: 480px;
+  }
+}
+
+@media (max-width: 560px) {
+  .inner {
+    padding: 60px 20px;
+  }
+
+  .answer {
+    padding-left: 38px;
+  }
+}

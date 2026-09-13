@@ -1,0 +1,33 @@
+.section {
+  padding: 140px 32px 24px; /* Space for the fixed header */
+  width: 100%;
+}
+
+.inner {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.title {
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  color: #111;
+  margin: 0 0 16px 0;
+  line-height: 1.05;
+  max-width: 900px;
+}
+
+.description {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  color: #555;
+  line-height: 1.5;
+  margin: 0;
+  max-width: 600px;
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 100px 20px 24px;
+  }
+}
