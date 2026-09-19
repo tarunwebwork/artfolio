@@ -1,8 +1,28 @@
 'use client';
 
 import Image from 'next/image';
+import { motion } from 'framer-motion';
 
 import styles from './Services.module.css';
+
+const sectionVariants = {
+  hidden: { opacity: 0, y: 40 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
+};
+
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.15
+    }
+  }
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } }
+};
 
 const SERVICES_DATA = [
   {
@@ -45,7 +65,15 @@ const SERVICES_DATA = [
 
 export default function Services() {
   return (
-    <section id="services" className={styles.section} aria-label="Services section">
+    <motion.section 
+      id="services" 
+      className={styles.section} 
+      aria-label="Services section"
+      variants={sectionVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.1 }}
+    >
       <div className={styles.inner}>
         {/* ── Left Sidebar (Heading) ─────────────────── */}
         <div className={styles.sidebar}>
@@ -66,9 +94,15 @@ export default function Services() {
           </div>
 
           {/* Services List */}
-          <div className={styles.servicesList}>
+          <motion.div 
+            className={styles.servicesList}
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.1 }}
+          >
             {SERVICES_DATA.map((service, index) => (
-              <div key={index} className={styles.serviceRow}>
+              <motion.div key={index} className={styles.serviceRow} variants={itemVariants}>
                 {/* Left Column: Title & Chips */}
                 <div className={styles.serviceLeft}>
                   <div className={styles.serviceTitleWrap}>
@@ -97,11 +131,11 @@ export default function Services() {
                   </div>
                   <p className={styles.description}>{service.desc}</p>
                 </div>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }

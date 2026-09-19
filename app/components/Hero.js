@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import styles from './Hero.module.css';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const slides = [
   "Design",
@@ -32,18 +33,27 @@ export default function Hero() {
       />
       <div className={styles.overlay} />
       
-      <div className={styles.content}>
+      <motion.div 
+        className={styles.content}
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+      >
         <div className={styles.textSlider}>
-          {slides.map((text, index) => (
-            <h1
-              key={index}
-              className={`${styles.heading} ${index === currentSlide ? styles.active : ''}`}
+          <AnimatePresence mode="wait">
+            <motion.h1
+              key={currentSlide}
+              className={styles.heading}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.5 }}
             >
-              {text}
-            </h1>
-          ))}
+              {slides[currentSlide]}
+            </motion.h1>
+          </AnimatePresence>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }

@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
+import { motion } from 'framer-motion';
 import styles from './FAQ.module.css';
 
 
@@ -57,7 +58,14 @@ function FAQItem({ index, question, answer }) {
 
 export default function FAQ() {
   return (
-    <section className={styles.section} aria-label="Frequently asked questions">
+    <motion.section 
+      className={styles.section} 
+      aria-label="Frequently asked questions"
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+    >
       <div className={styles.inner}>
 
         {/* ── Left column ─────────────────────────────── */}
@@ -100,6 +108,6 @@ export default function FAQ() {
         </div>
 
       </div>
-    </section>
+    </motion.section>
   );
 }

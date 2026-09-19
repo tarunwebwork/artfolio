@@ -25,49 +25,21 @@
   flex-wrap: wrap;
 }
 
-/* ── Nav columns ─────────────────────────────────── */
-.navGrid {
-  display: grid;
-  grid-template-columns: repeat(4, auto);
-  gap: 0 40px;
-  align-items: start;
-}
-
-.navCol {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-.colHeading {
-  font-size: 12.5px;
-  font-weight: 700;
-  letter-spacing: 0.04em;
+/* ── Big Logo ────────────────────────────────────── */
+.bigLogo {
+  font-size: 80px;
+  font-weight: 800;
   color: #111;
-  margin-bottom: 8px;
-  text-transform: none;
+  letter-spacing: -0.04em;
+  line-height: 1;
 }
 
-.navLink {
-  font-size: 13px;
+.logoSup {
+  font-size: 24px;
   font-weight: 400;
-  color: #444;
-  text-decoration: none;
-  letter-spacing: 0.01em;
-  transition: color 0.2s;
-  line-height: 1.65;
-}
-
-.navLink:hover {
-  color: #111;
-}
-
-.navLinkAccent {
-  color: #c0392b;
-}
-
-.navLinkAccent:hover {
-  color: #a93226;
+  vertical-align: super;
+  margin-left: 4px;
+  color: #666;
 }
 
 /* ── Right panel ─────────────────────────────────── */
@@ -234,12 +206,7 @@
 }
 
 /* ── Responsive ──────────────────────────────────── */
-@media (max-width: 900px) {
-  .navGrid {
-    grid-template-columns: repeat(2, auto);
-    gap: 24px 40px;
-  }
-}
+
 
 @media (max-width: 640px) {
   .inner {

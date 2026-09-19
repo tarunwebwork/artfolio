@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import styles from './Header.module.css';
+import { motion } from 'framer-motion';
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -17,12 +18,17 @@ export default function Header() {
   }, []);
 
   return (
-    <header className={`${styles.header} ${scrolled ? styles.scrolled : ''}`}>
+    <motion.header 
+      className={`${styles.header} ${scrolled ? styles.scrolled : ''}`}
+      initial={{ y: -100, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+    >
       <div className={styles.inner}>
 
         {/* Left: Logo + Barcode + tagline */}
         <div className={styles.brand}>
-          <span className={styles.logoMark}>Artfolio<sup>®</sup></span>
+          <span className={styles.logoMark}>Artfolio<sup></sup></span>
           <div className={styles.divider} />
           <div className={styles.barcodeWrap}>
             {/* Barcode SVG stripes */}
@@ -89,6 +95,6 @@ export default function Header() {
         <Link href="#services" className={styles.drawerLink} onClick={() => setMenuOpen(false)}>Services</Link>
         <Link href="#contact" className={styles.drawerLink} onClick={() => setMenuOpen(false)}>Contact</Link>
       </div>
-    </header>
+    </motion.header>
   );
 }

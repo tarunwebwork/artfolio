@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import styles from './Stats.module.css';
+import { motion } from 'framer-motion';
 
 const STATS = [
 
@@ -99,10 +100,14 @@ export default function Stats() {
   }, []);
 
   return (
-    <section
+    <motion.section
       ref={sectionRef}
       className={styles.section}
       aria-label="Studio statistics"
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
     >
       <div className={styles.inner}>
 
@@ -124,6 +129,6 @@ export default function Stats() {
         </div>
 
       </div>
-    </section>
+    </motion.section>
   );
 }

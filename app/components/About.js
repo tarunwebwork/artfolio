@@ -2,12 +2,21 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 
 import styles from './About.module.css';
 
 export default function About() {
   return (
-    <section id="about" className={styles.section} aria-label="About us section">
+    <motion.section 
+      id="about" 
+      className={styles.section} 
+      aria-label="About us section"
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+    >
       <div className={styles.inner}>
 
         {/* ── Left Column (Image & Quote) ──────────────── */}
@@ -60,6 +69,6 @@ export default function About() {
         </div>
 
       </div>
-    </section >
+    </motion.section >
   );
 }

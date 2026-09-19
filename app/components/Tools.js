@@ -1,6 +1,7 @@
 'use client';
 
 import styles from './Tools.module.css';
+import { motion } from 'framer-motion';
 
 const tools = [
   { id: 1, name: 'HTML5', description: 'Markup Language', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg' },
@@ -19,7 +20,14 @@ const tools = [
 
 export default function Tools() {
   return (
-    <section className={styles.section} aria-label="Tools section">
+    <motion.section 
+      className={styles.section} 
+      aria-label="Tools section"
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+    >
       <div className={styles.topContainer}>
         <div className={styles.eyebrowContainer}>
           <span className={styles.eyebrowDot} aria-hidden="true">•</span>
@@ -47,6 +55,6 @@ export default function Tools() {
           ))}
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }

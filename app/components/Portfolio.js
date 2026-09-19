@@ -4,6 +4,7 @@ import { useState, useEffect, useCallback } from 'react';
 import Image from 'next/image';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
+import { motion } from 'framer-motion';
 
 import styles from './Portfolio.module.css';
 
@@ -339,7 +340,15 @@ export default function Portfolio() {
   const currentProject = activeProjects[lightbox.index];
 
   return (
-    <section id="portfolio" className={styles.section} aria-label="Portfolio section">
+    <motion.section 
+      id="portfolio" 
+      className={styles.section} 
+      aria-label="Portfolio section"
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.1 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+    >
       <div className={styles.inner}>
 
         {/* ── Header ─────────────────────────────────────── */}
@@ -565,6 +574,6 @@ export default function Portfolio() {
           </div>
         </div>
       )}
-    </section>
+    </motion.section>
   );
 }

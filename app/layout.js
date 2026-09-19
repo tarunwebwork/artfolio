@@ -10,7 +10,7 @@ const outfit = Outfit({
 });
 
 export const metadata = {
-  title: 'Artfolio® – Portfolio Website',
+  title: 'Artfolio – Portfolio Website',
   description: 'Premium Portfolio Website portfolio',
 };
 

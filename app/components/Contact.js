@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
+import { motion } from 'framer-motion';
 
 import styles from './Contact.module.css';
 
@@ -89,7 +90,7 @@ export default function Contact() {
   };
 
   return (
-    <section
+    <motion.section
       id="contact"
       ref={sectionRef}
       className={styles.section}
@@ -98,6 +99,10 @@ export default function Contact() {
         '--mx': `${mousePos.x}%`,
         '--my': `${mousePos.y}%`,
       }}
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.1 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
     >
       {/* Dot-grid radial glow follows cursor */}
       <div className={styles.glow} aria-hidden="true" />
@@ -241,6 +246,6 @@ export default function Contact() {
         </div>
 
       </div>
-    </section>
+    </motion.section>
   );
 }

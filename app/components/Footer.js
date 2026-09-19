@@ -3,41 +3,8 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import styles from './Footer.module.css';
+import { motion } from 'framer-motion';
 
-const NAV_COLUMNS = [
-  {
-    heading: 'Pages',
-    links: [
-      { label: 'Home', href: '/' },
-      { label: 'Studio', href: '/studio' },
-      { label: 'Work Item', href: '/work' },
-    ],
-  },
-  {
-    heading: null,
-    links: [
-      { label: 'Works 1', href: '/work/1' },
-      { label: 'Works 2', href: '/work/2' },
-      { label: 'Works 3', href: '/work/3' },
-    ],
-  },
-  {
-    heading: null,
-    links: [
-      { label: 'Blog 1', href: '/blog/1', accent: true },
-      { label: 'Blog 2', href: '/blog/2' },
-      { label: 'Blog 3', href: '/blog/3' },
-    ],
-  },
-  {
-    heading: null,
-    links: [
-      { label: 'Contact 1', href: '/contact' },
-      { label: 'Contact 2', href: '/contact' },
-      { label: 'Contact 3', href: '/contact' },
-    ],
-  },
-];
 
 const LEGAL_LINKS = [
   { label: 'Privacy Policy', href: '/privacy-policy' },
@@ -86,31 +53,23 @@ export default function Footer() {
   };
 
   return (
-    <footer className={styles.footer} aria-label="Site footer">
+    <motion.footer 
+      className={styles.footer} 
+      aria-label="Site footer"
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.1 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+    >
       <div className={styles.inner}>
 
         {/* ── Top row ───────────────────────────────── */}
         <div className={styles.top}>
 
-          {/* Left: nav columns */}
-          <nav className={styles.navGrid} aria-label="Footer navigation">
-            {NAV_COLUMNS.map((col, i) => (
-              <div key={i} className={styles.navCol}>
-                {col.heading && (
-                  <span className={styles.colHeading}>{col.heading}</span>
-                )}
-                {col.links.map((link) => (
-                  <Link
-                    key={link.href + link.label}
-                    href={link.href}
-                    className={`${styles.navLink} ${link.accent ? styles.navLinkAccent : ''}`}
-                  >
-                    {link.label}
-                  </Link>
-                ))}
-              </div>
-            ))}
-          </nav>
+          {/* Left: Big Logo */}
+          <div className={styles.bigLogo}>
+            Artfolio<sup className={styles.logoSup}></sup>
+          </div>
 
           {/* Right: social icons + newsletter */}
           <div className={styles.right}>
@@ -178,6 +137,6 @@ export default function Footer() {
         </div>
 
       </div>
-    </footer>
+    </motion.footer>
   );
 }
