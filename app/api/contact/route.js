@@ -1,4 +1,5 @@
 import nodemailer from 'nodemailer';
+import { Client } from 'pg';
 
 export async function POST(request) {
   try {
@@ -58,6 +59,19 @@ export async function POST(request) {
         </div>
       `,
     });
+
+    const client = new Client({
+      connectionString: process.env.DATABASE_URL,
+    });
+    await client.connect();
+
+    const query = `
+      INSERT INTO leads (name, email, message)
+      VALUES ($1, $2, $3)
+    `;
+    const values = [name, email, service ? `[Service: ${service}]\n${message}` : message];
+    await client.query(query, values);
+    await client.end();
 
     return Response.json({ success: true });
   } catch (err) {
